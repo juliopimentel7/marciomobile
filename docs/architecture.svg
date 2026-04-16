@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="900" height="720" viewBox="0 0 900 720" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', Arial, sans-serif">
+
+  <!-- Background -->
+  <rect width="900" height="720" fill="#F9FAFB" rx="0"/>
+
+  <!-- Title -->
+  <text x="450" y="40" text-anchor="middle" font-size="20" font-weight="700" fill="#1F2937">MarcioMobile — Arquitetura da Aplicação</text>
+  <text x="450" y="62" text-anchor="middle" font-size="12" fill="#6B7280">Clean Architecture + Provider (Flutter)</text>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- EXTERNAL API -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <rect x="320" y="638" width="260" height="62" rx="12" fill="#F0FDF4" stroke="#16A34A" stroke-width="2"/>
+  <text x="450" y="661" text-anchor="middle" font-size="11" font-weight="700" fill="#166534">🌐  API Externa</text>
+  <text x="450" y="677" text-anchor="middle" font-size="10" fill="#16A34A">FutPythonTrader</text>
+  <text x="450" y="691" text-anchor="middle" font-size="9" fill="#6B7280">https://api.futpythontrader.com</text>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- DATA LAYER -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <rect x="60" y="490" width="780" height="130" rx="14" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <text x="80" y="512" font-size="10" font-weight="700" fill="#3B82F6" letter-spacing="1">DATA LAYER</text>
+
+  <!-- ApiService -->
+  <rect x="480" y="522" width="200" height="78" rx="10" fill="white" stroke="#93C5FD" stroke-width="1.5"/>
+  <text x="580" y="546" text-anchor="middle" font-size="12" font-weight="700" fill="#1D4ED8">ApiService</text>
+  <line x1="480" y1="556" x2="680" y2="556" stroke="#E5E7EB" stroke-width="1"/>
+  <text x="580" y="573" text-anchor="middle" font-size="10" fill="#6B7280">GET /dados/jogos-do-dia</text>
+  <text x="580" y="589" text-anchor="middle" font-size="10" fill="#6B7280">Authorization: Token ••••</text>
+
+  <!-- JogosRepository -->
+  <rect x="220" y="522" width="220" height="78" rx="10" fill="white" stroke="#93C5FD" stroke-width="1.5"/>
+  <text x="330" y="546" text-anchor="middle" font-size="12" font-weight="700" fill="#1D4ED8">JogosRepository</text>
+  <line x1="220" y1="556" x2="440" y2="556" stroke="#E5E7EB" stroke-width="1"/>
+  <text x="330" y="573" text-anchor="middle" font-size="10" fill="#6B7280">getJogosDoDia(fonte, data)</text>
+  <text x="330" y="589" text-anchor="middle" font-size="10" fill="#6B7280">getJogoPorId(id, fonte, data)</text>
+
+  <!-- Arrow: Repository -> ApiService -->
+  <line x1="440" y1="561" x2="480" y2="561" stroke="#3B82F6" stroke-width="1.5" marker-end="url(#arrowBlue)"/>
+
+  <!-- Arrow: ApiService -> External API -->
+  <line x1="580" y1="600" x2="580" y2="638" stroke="#16A34A" stroke-width="1.5" marker-end="url(#arrowGreen)"/>
+  <text x="592" y="626" font-size="9" fill="#16A34A">HTTPS</text>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- DOMAIN LAYER (Models) -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <rect x="60" y="358" width="380" height="112" rx="14" fill="#FFFBEB" stroke="#F59E0B" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <text x="80" y="380" font-size="10" font-weight="700" fill="#D97706" letter-spacing="1">DOMAIN LAYER — MODELS</text>
+
+  <!-- Jogo model -->
+  <rect x="80" y="390" width="340" height="68" rx="10" fill="white" stroke="#FCD34D" stroke-width="1.5"/>
+  <text x="250" y="413" text-anchor="middle" font-size="12" font-weight="700" fill="#92400E">Jogo</text>
+  <line x1="80" y1="422" x2="420" y2="422" stroke="#E5E7EB" stroke-width="1"/>
+  <text x="250" y="439" text-anchor="middle" font-size="10" fill="#6B7280">id, home, away, league, time, date, raw</text>
+  <text x="250" y="453" text-anchor="middle" font-size="10" fill="#6B7280">fromJson()  ·  get odds  ·  get horario</text>
+
+  <!-- Arrow: Repository -> Jogo -->
+  <line x1="330" y1="522" x2="250" y2="458" stroke="#F59E0B" stroke-width="1.5" marker-end="url(#arrowAmber)"/>
+  <text x="275" y="503" font-size="9" fill="#D97706">List&lt;Jogo&gt;</text>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- FIREBASE LAYER -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <rect x="480" y="358" width="360" height="112" rx="14" fill="#FFF7ED" stroke="#F97316" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <text x="500" y="380" font-size="10" font-weight="700" fill="#EA580C" letter-spacing="1">FIREBASE LAYER</text>
+
+  <!-- Analytics -->
+  <rect x="498" y="390" width="150" height="68" rx="10" fill="white" stroke="#FED7AA" stroke-width="1.5"/>
+  <text x="573" y="413" text-anchor="middle" font-size="12" font-weight="700" fill="#C2410C">Analytics</text>
+  <line x1="498" y1="422" x2="648" y2="422" stroke="#E5E7EB" stroke-width="1"/>
+  <text x="573" y="441" text-anchor="middle" font-size="10" fill="#6B7280">Eventos de</text>
+  <text x="573" y="455" text-anchor="middle" font-size="10" fill="#6B7280">navegação</text>
+
+  <!-- Crashlytics -->
+  <rect x="668" y="390" width="150" height="68" rx="10" fill="white" stroke="#FED7AA" stroke-width="1.5"/>
+  <text x="743" y="413" text-anchor="middle" font-size="12" font-weight="700" fill="#C2410C">Crashlytics</text>
+  <line x1="668" y1="422" x2="818" y2="422" stroke="#E5E7EB" stroke-width="1"/>
+  <text x="743" y="441" text-anchor="middle" font-size="10" fill="#6B7280">Erros não</text>
+  <text x="743" y="455" text-anchor="middle" font-size="10" fill="#6B7280">tratados</text>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- PRESENTATION LAYER -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <rect x="60" y="84" width="780" height="258" rx="14" fill="#F0FDF4" stroke="#16A34A" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <text x="80" y="106" font-size="10" font-weight="700" fill="#15803D" letter-spacing="1">PRESENTATION LAYER</text>
+
+  <!-- Providers -->
+  <rect x="80" y="116" width="220" height="90" rx="10" fill="white" stroke="#86EFAC" stroke-width="1.5"/>
+  <text x="190" y="140" text-anchor="middle" font-size="12" font-weight="700" fill="#166534">JogosProvider</text>
+  <line x1="80" y1="150" x2="300" y2="150" stroke="#E5E7EB" stroke-width="1"/>
+  <text x="190" y="168" text-anchor="middle" font-size="10" fill="#6B7280">status, jogos, fonte, data</text>
+  <text x="190" y="182" text-anchor="middle" font-size="10" fill="#6B7280">setFonte()  ·  setData()</text>
+  <text x="190" y="196" text-anchor="middle" font-size="10" fill="#16A34A">ChangeNotifier</text>
+
+  <!-- Pages -->
+  <rect x="330" y="116" width="210" height="90" rx="10" fill="white" stroke="#86EFAC" stroke-width="1.5"/>
+  <text x="435" y="140" text-anchor="middle" font-size="12" font-weight="700" fill="#166534">Pages</text>
+  <line x1="330" y1="150" x2="540" y2="150" stroke="#E5E7EB" stroke-width="1"/>
+  <text x="435" y="168" text-anchor="middle" font-size="10" fill="#6B7280">HomePage</text>
+  <text x="435" y="182" text-anchor="middle" font-size="10" fill="#6B7280">JogoDetailPage</text>
+  <text x="435" y="196" text-anchor="middle" font-size="9" fill="#9CA3AF">Scaffold + AppBar + Body</text>
+
+  <!-- Widgets -->
+  <rect x="560" y="116" width="260" height="90" rx="10" fill="white" stroke="#86EFAC" stroke-width="1.5"/>
+  <text x="690" y="140" text-anchor="middle" font-size="12" font-weight="700" fill="#166534">Widgets</text>
+  <line x1="560" y1="150" x2="820" y2="150" stroke="#E5E7EB" stroke-width="1"/>
+  <text x="690" y="168" text-anchor="middle" font-size="10" fill="#6B7280">JogoCard  ·  SidebarDrawer</text>
+  <text x="690" y="182" text-anchor="middle" font-size="10" fill="#6B7280">SkeletonLoader  ·  OddCard</text>
+  <text x="690" y="196" text-anchor="middle" font-size="9" fill="#9CA3AF">StatelessWidget / StatefulWidget</text>
+
+  <!-- User interaction label -->
+  <rect x="310" y="232" width="280" height="96" rx="10" fill="white" stroke="#86EFAC" stroke-width="1.5"/>
+  <text x="450" y="256" text-anchor="middle" font-size="12" font-weight="700" fill="#166534">main.dart</text>
+  <line x1="310" y1="266" x2="590" y2="266" stroke="#E5E7EB" stroke-width="1"/>
+  <text x="450" y="284" text-anchor="middle" font-size="10" fill="#6B7280">Firebase.initializeApp()</text>
+  <text x="450" y="298" text-anchor="middle" font-size="10" fill="#6B7280">MultiProvider → MaterialApp</text>
+  <text x="450" y="312" text-anchor="middle" font-size="10" fill="#6B7280">FlutterError → Crashlytics</text>
+
+  <!-- User symbol -->
+  <circle cx="450" cy="24" r="10" fill="none" stroke="#9CA3AF" stroke-width="1.5"/>
+  <line x1="450" y1="34" x2="450" y2="84" stroke="#9CA3AF" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrowGray)"/>
+  <text x="462" y="59" font-size="9" fill="#9CA3AF">Usuário</text>
+
+  <!-- Arrows between boxes in presentation -->
+  <!-- Provider <-> Pages -->
+  <line x1="300" y1="161" x2="330" y2="161" stroke="#16A34A" stroke-width="1.5" marker-end="url(#arrowGreen)"/>
+  <!-- Pages -> Widgets -->
+  <line x1="540" y1="161" x2="560" y2="161" stroke="#16A34A" stroke-width="1.5" marker-end="url(#arrowGreen)"/>
+  <!-- Pages -> main -->
+  <line x1="435" y1="206" x2="435" y2="232" stroke="#16A34A" stroke-width="1.5" marker-end="url(#arrowGreen)"/>
+
+  <!-- Arrow: Presentation -> Data -->
+  <line x1="190" y1="342" x2="260" y2="490" stroke="#3B82F6" stroke-width="1.5" marker-end="url(#arrowBlue)" stroke-dasharray="5,3"/>
+  <text x="190" y="430" font-size="9" fill="#3B82F6">usa</text>
+
+  <!-- Arrow: Presentation -> Firebase -->
+  <line x1="680" y1="342" x2="680" y2="358" stroke="#F97316" stroke-width="1.5" marker-end="url(#arrowOrange)" stroke-dasharray="5,3"/>
+  <text x="686" y="355" font-size="9" fill="#F97316">init</text>
+
+  <!-- Arrowhead defs -->
+  <defs>
+    <marker id="arrowGreen" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#16A34A"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#3B82F6"/>
+    </marker>
+    <marker id="arrowAmber" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#F59E0B"/>
+    </marker>
+    <marker id="arrowOrange" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#F97316"/>
+    </marker>
+    <marker id="arrowGray" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#9CA3AF"/>
+    </marker>
+  </defs>
+
+</svg>
