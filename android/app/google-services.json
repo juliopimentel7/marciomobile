@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "840951277970",
+    "project_id": "futpython-bb9ec",
+    "storage_bucket": "futpython-bb9ec.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:840951277970:android:3bfbd39f935f1e9afbf94b",
+        "android_client_info": {
+          "package_name": "com.example.marciomobile"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjVoTdj7ZKAmQVvrklFGv0uWJsqg-cbVg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
